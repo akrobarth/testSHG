@@ -1,1 +1,76 @@
-body{margin:0; padding:0;}
+//SASS VAIABLES
+//BREAKPOINTS
+$small-screen: 720px;
+
+//COLORS
+$color-light: #ffffff;
+
+//RESET CSS
+body{
+	margin:0;
+	padding:0;
+}
+
+// MAIN PAGE CSS
+.header{
+	border: solid red 1px;
+	position:fixed;
+	width: 100%;
+	top:0;
+	&__logo{
+		text-align: center;
+		text-transform: uppercase;
+		background: url(../img/bg-logo.png) no-repeat;
+		background-size: contain;
+		background-position: center;
+		padding: 5px;
+	}
+	&__menu{
+		position: absolute;
+		right:0;
+		top:0;
+	}
+}
+.container{
+	border: solid blue 1px;
+	&__banner{
+		display: flex;
+		@media screen and (max-width: $small-screen) {
+			display:block;
+		}
+		border: solid green 1px;
+		&__left{
+			color: $color-light;
+			height:200px;
+			flex:2;
+			text-transform: uppercase;
+			text-align: center;
+			background: url(../img/runner.jpg) no-repeat;
+			background-size: cover;
+			background-position: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		&__right{
+			flex:2;
+		}	
+	}
+	&__data{
+		border: solid yellow 1px;
+		&__title{
+		}
+		&__charts{
+			display: flex;
+			@media screen and (max-width: $small-screen) {
+				display:block;
+			}
+			&__chart{
+				flex:2;
+			}
+			&__progression{
+				flex:2;
+			}
+		}
+	}
+}
