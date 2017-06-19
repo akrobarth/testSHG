@@ -5,28 +5,71 @@ $small-screen: 720px;
 //COLORS
 $color-light: #ffffff;
 $color-grey: #f5f5f5;
+$color-green: #2e8126;
+$color-brown: #625247;
+$color-red: #be1f3b;
 
 //FONT FACES
 @font-face {
-    font-family: edosz;
+    font-family: 'edosz';
     src: url(../fonts/edosz.ttf);
 }
 @font-face {
-    font-family: Spinnaker-Regular;
+    font-family: 'Spinnaker-Regular';
     src: url(../fonts/Spinnaker-Regular.ttf);
 }
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?nszjtj');
+  src:  url('fonts/icomoon.eot?nszjtj#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?nszjtj') format('truetype'),
+    url('fonts/icomoon.woff?nszjtj') format('woff'),
+    url('fonts/icomoon.svg?nszjtj#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 //RESET CSS
 body{
+	font-family: 'edosz';
+	font-size: 20px;
+}
+*, body, p{
 	margin:0;
 	padding:0;
-	font-family: edosz;
+	box-sizing: border-box;
 }
+a{
+	text-decoration: none;
+}
+
+// ICON
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-close:before {
+  content: "\e901";
+}
+.icon-menu:before {
+  content: "\e900";
+}
+
 
 
 // MAIN PAGE CSS
 .header{
-	border: solid red 1px;
-	position:fixed;
+	position:absolute;
 	width: 100%;
 	top:0;
 	&__logo{
@@ -35,35 +78,54 @@ body{
 		background: url(../image/bg-logo.png) no-repeat;
 		background-size: contain;
 		background-position: center;
-		padding: 5px;
+		padding: 20px;
+		margin-top:30px;
+		font-size:20px;
+		color: $color-light;
 	}
 	&__menu{
-		font-family: Spinnaker-Regular;
+		font-family: 'Spinnaker-Regular';
 		position: absolute;
 		right:0;
 		top:0;
+		padding: 10px;
+		text-transform: uppercase;
+		color: $color-green;
+		text-align: center;
+		line-height: 0;
+		cursor: pointer;
+		&--big{
+			font-size:45px;
+		}
+		&--small{
+			font-size: 11px;
+		}
+
 	}
 }
 .container{
-	border: solid blue 1px;
 	&__banner{
 		display: flex;
 		@media screen and (max-width: $small-screen) {
 			flex-direction: column;
 		}
-		border: solid green 1px;
 		&__left{
 			color: $color-light;
-			height:200px;
+			min-height: 100vh;
 			flex:2;
 			text-transform: uppercase;
 			text-align: center;
 			background: url(../image/runner.jpg) no-repeat;
 			background-size: cover;
-			background-position: center;
+			background-position: center right;
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			font-size: 80px;
+			display:flex;
+			&__text{
+			    padding: 50px;
+			}
 		}
 		&__right{
 			flex:2;
@@ -72,8 +134,18 @@ body{
 			align-items: center;
 			flex-direction: column;
 			position: relative;
+			text-align:center;
+			color: $color-brown;
+			&--small{
+				font-size: 12px;
+			}
+			&--big{
+				font-size: 60px;
+				color: $color-red;
+			}
 			&__form{
-				font-family: Spinnaker-Regular;
+				font-family: 'Spinnaker-Regular';
+				margin-top: 30px;
 				&--input{
 					border-radius: 50px;
 					outline: none;
@@ -85,7 +157,13 @@ body{
 			&__links{
 				position: absolute;
 				bottom: 0;
-				font-family: Spinnaker-Regular;
+				font-family: 'Spinnaker-Regular';
+				font-size: 12px;
+				color: darken($color-grey,9);
+				a {
+					color: inherit;
+				}
+				
 			}
 		}	
 	}
