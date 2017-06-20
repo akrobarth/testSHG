@@ -263,10 +263,18 @@ a{
 					flex-direction: column;
 					justify-content: center;
 					align-items: center;
-					border-radius: 500px;
-					border: 20px solid $color-green;
-					width: 288px;
-					height: 288px;
+					border-radius: 100%;
+					&-border{
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						align-items: center;
+						position: relative;
+						text-align: center;
+						width: 288px;
+						height: 288px;
+						border-radius: 100%;
+					}
 				}
 				&--percent{
 					color: $color-green;
