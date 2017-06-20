@@ -123,6 +123,9 @@ a{
 			align-items: center;
 			font-size: 80px;
 			display:flex;
+			@media screen and (max-width: $small-screen) {
+				min-height: 600px;
+			}
 			&__text{
 			    padding: 50px;
 			}
@@ -145,13 +148,27 @@ a{
 			}
 			&__form{
 				font-family: 'Spinnaker-Regular';
-				margin-top: 30px;
+				&--title{
+					font-size: 12px;
+					margin: 20px 0;
+				}
 				&--input{
 					border-radius: 50px;
 					outline: none;
 					border: solid 1px darken($color-grey, 5);
 					padding: 10px;
 					background: $color-grey;
+					text-align: center;
+				}
+				&--button{
+					display: block;
+					margin: 20px 0;
+					width: 100%;
+					border: none;
+					background: none;
+					font-family: 'edosz';
+					font-size:24px;
+					color: $color-light;
 				}
 			}
 			&__links{
