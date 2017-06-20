@@ -11,20 +11,20 @@ $color-red: #be1f3b;
 
 //FONT FACES
 @font-face {
-    font-family: 'edosz';
-    src: url(../fonts/edosz.ttf);
+	font-family: 'edosz';
+	src: url(../fonts/edosz.ttf);
 }
 @font-face {
-    font-family: 'Spinnaker-Regular';
-    src: url(../fonts/Spinnaker-Regular.ttf);
+	font-family: 'Spinnaker-Regular';
+	src: url(../fonts/Spinnaker-Regular.ttf);
 }
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?nszjtj');
-  src:  url('fonts/icomoon.eot?nszjtj#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?nszjtj') format('truetype'),
-    url('fonts/icomoon.woff?nszjtj') format('woff'),
-    url('fonts/icomoon.svg?nszjtj#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?nszjtj');
+  src:  url('../fonts/icomoon.eot?nszjtj#iefix') format('embedded-opentype'),
+	url('../fonts/icomoon.ttf?nszjtj') format('truetype'),
+	url('../fonts/icomoon.woff?nszjtj') format('woff'),
+	url('../fonts/icomoon.svg?nszjtj#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -72,6 +72,7 @@ a{
 	position:absolute;
 	width: 100%;
 	top:0;
+	z-index: 100;
 	&__logo{
 		text-align: center;
 		text-transform: uppercase;
@@ -94,11 +95,17 @@ a{
 		text-align: center;
 		line-height: 0;
 		cursor: pointer;
-		&--big{
+		@media screen and (max-width: $small-screen) {
+			color: $color-light;
+		}
+		&--icon{
 			font-size:45px;
 		}
-		&--small{
+		&--text{
 			font-size: 11px;
+			@media screen and (max-width: $small-screen) {
+				display: none;
+			}
 		}
 
 	}
@@ -123,11 +130,27 @@ a{
 			align-items: center;
 			font-size: 80px;
 			display:flex;
+			position: relative;
 			@media screen and (max-width: $small-screen) {
 				min-height: 600px;
 			}
 			&__text{
-			    padding: 50px;
+				padding: 50px;
+			}
+			&--border{
+				position: absolute;
+				right: 0;
+				top: 0;
+				height: 100%;
+				width: 60px;
+				background: url(../image/scratch.png) no-repeat;
+				background-size: cover;
+				@media screen and (max-width: $small-screen) {
+					height: 200%;
+					top: 100%;
+					transform: rotate(90deg);
+					transform-origin: 100% 0%;
+				}
 			}
 		}
 		&__right{
@@ -139,6 +162,9 @@ a{
 			position: relative;
 			text-align:center;
 			color: $color-brown;
+			@media screen and (max-width: $small-screen) {
+				min-height: 400px;
+			}
 			&--small{
 				font-size: 12px;
 			}
@@ -169,6 +195,10 @@ a{
 					font-family: 'edosz';
 					font-size:24px;
 					color: $color-light;
+					background: url(../image/bg-btn.png) no-repeat;
+					background-size: contain;
+					background-position: center;
+					padding: 10px;
 				}
 			}
 			&__links{
@@ -176,17 +206,43 @@ a{
 				bottom: 0;
 				font-family: 'Spinnaker-Regular';
 				font-size: 12px;
-				color: darken($color-grey,9);
+				color: darken($color-grey,25);
+				margin-bottom: 10px;
 				a {
 					color: inherit;
 				}
 				
 			}
+			&__catchprase{
+				position:absolute;
+				background: url(../image/bg-catchPhrase.png) no-repeat;
+				width: 167px;
+				height:156px;
+				top:20%;
+				right:12%;
+				color: $color-light;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				&--text{
+					transform: rotate(14deg);
+					width:70%;
+				}
+				@media screen and (max-width: $small-screen) {
+					display: none;
+				}
+			}
 		}	
 	}
 	&__data{
-		border: solid yellow 1px;
-		&__title{
+		background-color: $color-grey;
+		padding:40px 0;
+		&--title{
+			color: $color-red;
+			text-align:center;
+			font-size: 60px;
+			color: $color-red;
+			margin-bottom:40px;
 		}
 		&__charts{
 			display: flex;
@@ -195,9 +251,66 @@ a{
 			}
 			&__chart{
 				flex:2;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: url(../image/bg-dataPercent.png) no-repeat;
+				background-position: center;
+				width:350px;
+				height:350px;
+				&--progression{
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					border-radius: 500px;
+					border: 20px solid $color-green;
+					width: 288px;
+					height: 288px;
+				}
+				&--percent{
+					color: $color-green;
+					font-size: 80px;
+				}
+				&--text{
+					font-size:30px;
+
+				}
+				@media screen and (max-width: $small-screen) {
+					margin: auto;
+				}
 			}
 			&__progression{
 				flex:2;
+				display:flex;
+				justify-content: center;
+				align-items: center;
+				&--content{
+					height:130px;
+					display:flex;
+					justify-content: center;
+					align-items: center;
+					flex-wrap: wrap;
+				}
+				&--title{
+					flex:50%;
+					text-align:center;
+					font-size: 40px;
+				}
+				&--amount{
+					flex:50%;
+					text-align:center;
+				}
+				&--chart{
+					flex:100%;
+					background: url(../image/bg-dataGain.png) no-repeat;
+					background-position: center;
+					width:495px;
+					height:63px;
+				}
+				@media screen and (max-width: $small-screen) {
+					margin: 30px auto;
+				}
 			}
 		}
 	}
