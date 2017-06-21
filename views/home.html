@@ -1,6 +1,22 @@
+<div class="header__menu__overlay" ng-show='showMenu'>
+	<div class="header__menu__overlay--close">
+		<i class="icon-close header__menu--icon" ng-click="openMenu();"></i>
+	</div>
+	<ul>
+		<li>plop</li>
+		<li>plop</li>
+		<li>plop</li>
+		<li>plop</li>
+		<li>plop</li>
+		<li>plop</li>
+		<li>plop</li>
+		<li>plop</li>
+		<li>plop</li>
+	</ul>
+</div>
 <div class="header">
 	<div class="header__logo">running heroes</div>
-	<div class="header__menu">
+	<div class="header__menu" ng-click="openMenu();">
 		<i class="icon-menu header__menu--icon"></i>
 		<div class="header__menu--text">menu</div>
 	</div>
@@ -38,7 +54,7 @@
 		<div class="container__data--title">les data</div>
 		<div class="container__data__charts">
 			<div class="container__data__charts__chart">
-				<div class="container__data__charts__chart--progression-border">
+				<div class="container__data__charts__chart--progression-border piechart-25">
 					<div class="container__data__charts__chart--progression">
 						<div class="container__data__charts__chart--percent">
 							67 % 

@@ -107,7 +107,20 @@ a{
 				display: none;
 			}
 		}
-
+		&__overlay{
+			position: fixed;
+			width: 100%;
+			height:100%;
+			background: rgba(255, 255, 255, 0.9);
+			z-index: 200;
+			&--close{
+				position: absolute;
+				right:0;
+				top:0;
+				padding: 10px;
+				color: $color-green;
+			}
+		}
 	}
 }
 .container{
@@ -264,6 +277,10 @@ a{
 					justify-content: center;
 					align-items: center;
 					border-radius: 100%;
+					background: url(../image/bg-dataPercent.png) $color-grey no-repeat;
+    				background-position: center;
+    				width: 250px;
+					height: 250px;
 					&-border{
 						display: flex;
 						flex-direction: column;
@@ -322,4 +339,23 @@ a{
 			}
 		}
 	}
+}
+
+// PERCENTS
+@function my-calc($var){
+	@return ((($var - 50 ) * 3.6) - 90deg)
+}
+@for $i from 1 through 100 {
+    .piechart-#{$i} {
+    	@if ($i < 50) {
+    		background-image:
+    			linear-gradient(-90deg, transparent 50%, #cde5c8 50%),
+				linear-gradient(my-calc($i), #35810a 50%, transparent 50%);
+    	}
+    	@else {
+			background-image: 
+				linear-gradient(90deg, transparent 50%, #35810a 50%),
+				linear-gradient(my-calc($i), #35810a 50%, transparent 50%);
+    	}
+    }
 }
