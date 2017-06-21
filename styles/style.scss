@@ -121,6 +121,21 @@ a{
 				color: $color-green;
 			}
 		}
+		&__items{
+			list-style: none;
+			margin:auto;
+			display: block;
+			text-align:center;
+			color: $color-green;
+			& li{
+				display: block;
+				margin: 20px 0;
+				cursor:pointer;
+				&.activ{
+					color: $color-red;
+				}
+			}
+		}
 	}
 }
 .container{
@@ -212,6 +227,7 @@ a{
 					background-size: contain;
 					background-position: center;
 					padding: 10px;
+					cursor:pointer;
 				}
 			}
 			&__links{
@@ -231,7 +247,7 @@ a{
 				background: url(../image/bg-catchPhrase.png) no-repeat;
 				width: 167px;
 				height:156px;
-				top:20%;
+				top:6%;
 				right:12%;
 				color: $color-light;
 				display: flex;
@@ -330,8 +346,23 @@ a{
 					flex:100%;
 					background: url(../image/bg-dataGain.png) no-repeat;
 					background-position: center;
-					width:495px;
+					max-width:495px;
+					min-width:495px;
 					height:63px;
+					color: $color-light;
+					position: relative;
+				}
+				&--fill{
+					height: 100%;
+					width: 100%;
+					
+					background-color: $color-green;
+					-webkit-mask-image: url('../image/bg-dataGain.png');
+				}
+				&--value{
+					position: absolute;
+					top: 20px;
+					left: 50px;
 				}
 				@media screen and (max-width: $small-screen) {
 					margin: 30px auto;
@@ -345,6 +376,9 @@ a{
 @function my-calc($var){
 	@return ((($var - 50 ) * 3.6) - 90deg)
 }
+@function my-percent($var){
+	@return ($var *1%)
+}
 @for $i from 1 through 100 {
     .piechart-#{$i} {
     	@if ($i < 50) {
@@ -357,5 +391,9 @@ a{
 				linear-gradient(90deg, transparent 50%, #35810a 50%),
 				linear-gradient(my-calc($i), #35810a 50%, transparent 50%);
     	}
+    }
+
+    .barchart-#{$i} {
+    	width: my-percent($i);
     }
 }

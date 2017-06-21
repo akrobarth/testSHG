@@ -2,16 +2,8 @@
 	<div class="header__menu__overlay--close">
 		<i class="icon-close header__menu--icon" ng-click="openMenu();"></i>
 	</div>
-	<ul>
-		<li>plop</li>
-		<li>plop</li>
-		<li>plop</li>
-		<li>plop</li>
-		<li>plop</li>
-		<li>plop</li>
-		<li>plop</li>
-		<li>plop</li>
-		<li>plop</li>
+	<ul class="header__menu__items">
+		<li ng-repeat="user in users" ng-class="[user.id === userActiv ? 'activ' : '']" ng-click="changeUser(user.id);">{{user.name}}</li>
 	</ul>
 </div>
 <div class="header">
@@ -54,10 +46,10 @@
 		<div class="container__data--title">les data</div>
 		<div class="container__data__charts">
 			<div class="container__data__charts__chart">
-				<div class="container__data__charts__chart--progression-border piechart-25">
+				<div class="container__data__charts__chart--progression-border" ng-class="'piechart-' + users['user' + userActiv].percent">
 					<div class="container__data__charts__chart--progression">
 						<div class="container__data__charts__chart--percent">
-							67 % 
+							{{users['user' + userActiv].percent}} % 
 						</div>
 						<div class="container__data__charts__chart--text">
 							de l'objectif
@@ -74,7 +66,12 @@
 					100 000€
 				</div>
 				<div class="container__data__charts__progression--chart">
-					
+					<div class="container__data__charts__progression--fill"  ng-class="'barchart-' + users['user' + userActiv].percent">
+						
+					</div>
+					<div class="container__data__charts__progression--value">
+						{{users['user' + userActiv].amount}} €
+					</div>
 				</div>
 				</div>
 			</div>

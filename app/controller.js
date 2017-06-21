@@ -11,12 +11,16 @@
     .module('app')
     .controller('MainController', function ($scope){
 		$scope.showMenu = false;
-
+		$scope.users = data;
+		$scope.userActiv = 1;
     	
-		$scope.openMenu =function () {
+		$scope.openMenu = function () {
 			$scope.showMenu = $scope.showMenu ? false : true;
 		};
-
+		$scope.changeUser = function (data){
+			$scope.userActiv = data;
+			$scope.showMenu = false;
+		};
 
     });
 })();
