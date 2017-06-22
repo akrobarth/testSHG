@@ -1,9 +1,14 @@
-<div class="header__menu__overlay" ng-show='showMenu'>
-	<div class="header__menu__overlay--close">
+<div class="header__menu__overlay" ng-show="showMenu" >
+	<div class="header__menu__overlay--close-icon">
 		<i class="icon-close header__menu--icon" ng-click="openMenu();"></i>
 	</div>
 	<ul class="header__menu__items">
-		<li ng-repeat="user in users" ng-class="[user.id === userActiv ? 'activ' : '']" ng-click="changeUser(user.id);">{{user.name}}</li>
+		<li 
+			ng-repeat="user in users" 
+			ng-class="[user.id === userActiv.id ? 'activ' : '']" 
+			ng-click="changeUser($index);">
+				<a>{{user.name}}</a>
+		</li>
 	</ul>
 </div>
 <div class="header">
@@ -29,33 +34,56 @@
 			</div>
 			<div class="container__banner__right__form">
 				<div class="container__banner__right__form--title">Rentrez votre email</div>
-				<input type="text" name="email" placeholder="E-MAIL" class="container__banner__right__form--input"/>
+				<form>
+				<input type="email" name="email" placeholder="E-MAIL" class="container__banner__right__form--input"/>
 				<input type="submit" value="Validez" class="container__banner__right__form--button"/>
+				</form>
 			</div>
 			<div class="container__banner__right__links">
 				<p><a href="#">Réglement</a> - <a href="#">Crédit</a> - <a href="#">Mentions légales</a> - <a href="#">Protection des données personnelles</a></p>
 			</div>
 			<div class="container__banner__right__catchprase">
-					<p class="container__banner__right__catchprase--text">
-						Une chance par jour
-					</p>
+				<p class="container__banner__right__catchprase--text">
+					Une chance par jour
+				</p>
 			</div>
 		</div>
 	</div>
-	<div class="container__data">
+	<div class="container__data" id="datas">
 		<div class="container__data--title">les data</div>
 		<div class="container__data__charts">
 			<div class="container__data__charts__chart">
-				<div class="container__data__charts__chart--progression-border" ng-class="'piechart-' + users['user' + userActiv].percent">
+				<!-- <div 
+					class="container__data__charts__chart--progression--border"
+					ng-class="'piechart-'+ userActiv.percent" 
+					ng-show="showdata">
 					<div class="container__data__charts__chart--progression">
 						<div class="container__data__charts__chart--percent">
-							{{users['user' + userActiv].percent}} % 
+							{{userActiv.percent}} % 
 						</div>
 						<div class="container__data__charts__chart--text">
 							de l'objectif
 						</div>
 					</div>
-				</div>
+				
+				</div> -->
+				
+				
+<div class="container__data__charts__chart--content">
+					<div class="container__data__charts__chart--progression">
+						<div class="container__data__charts__chart--percent">
+							{{userActiv.percent}} % 
+						</div>
+						<div class="container__data__charts__chart--text">
+							de l'objectif
+						</div>
+							
+					</div>
+					<div class="container__data__charts__chart--progression--border" ng-class="'piechart-a-'+ userActiv.percent"></div>
+					<div class="" ng-class="'piechart-b-'+ userActiv.percent"></div>
+</div>
+				
+				
 			</div>
 			<div class="container__data__charts__progression">
 				<div class="container__data__charts__progression--content">
@@ -66,11 +94,14 @@
 					100 000€
 				</div>
 				<div class="container__data__charts__progression--chart">
-					<div class="container__data__charts__progression--fill"  ng-class="'barchart-' + users['user' + userActiv].percent">
+					<div 
+						class="container__data__charts__progression--fill"
+						ng-class="'barchart-'+userActiv.percent"
+						ng-show="showdata">
 						
 					</div>
 					<div class="container__data__charts__progression--value">
-						{{users['user' + userActiv].amount}} €
+						{{userActiv.amount}} €
 					</div>
 				</div>
 				</div>

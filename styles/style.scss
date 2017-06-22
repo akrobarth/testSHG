@@ -41,6 +41,7 @@ body{
 }
 a{
 	text-decoration: none;
+	color: inherit;
 }
 
 // ICON
@@ -108,12 +109,17 @@ a{
 			}
 		}
 		&__overlay{
+			left:0;
 			position: fixed;
 			width: 100%;
 			height:100%;
 			background: rgba(255, 255, 255, 0.9);
 			z-index: 200;
-			&--close{
+			transition:all linear 0.5s;
+			&.ng-hide {
+				left:100%;
+			}
+			&--close-icon{
 				position: absolute;
 				right:0;
 				top:0;
@@ -286,7 +292,11 @@ a{
 				background: url(../image/bg-dataPercent.png) no-repeat;
 				background-position: center;
 				width:350px;
-				height:350px;
+				min-height:350px;
+				&--content{
+					position: relative;
+					padding:20px;
+				}
 				&--progression{
 					display: flex;
 					flex-direction: column;
@@ -297,7 +307,10 @@ a{
     				background-position: center;
     				width: 250px;
 					height: 250px;
-					&-border{
+					z-index: 100;
+					position:relative;
+					
+					&--border{
 						display: flex;
 						flex-direction: column;
 						justify-content: center;
@@ -307,6 +320,12 @@ a{
 						width: 288px;
 						height: 288px;
 						border-radius: 100%;
+						transition:all linear 1s;
+						border: solid #cde5c8 0;
+						&.ng-hide{
+							border-radius: 100%;
+							border: solid #cde5c8 20px;
+						}
 					}
 				}
 				&--percent{
@@ -355,9 +374,12 @@ a{
 				&--fill{
 					height: 100%;
 					width: 100%;
-					
 					background-color: $color-green;
 					-webkit-mask-image: url('../image/bg-dataGain.png');
+					transition:all linear 2s;
+					&.ng-hide{
+						width:0;
+					}
 				}
 				&--value{
 					position: absolute;
@@ -374,7 +396,8 @@ a{
 
 // PERCENTS
 @function my-calc($var){
-	@return ((($var - 50 ) * 3.6) - 90deg)
+	@return ((($var - 50 ) * 3.6) - 180deg)
+	//@return ((($var - 50 ) * 3.6) - 180deg)
 }
 @function my-percent($var){
 	@return ($var *1%)
@@ -392,6 +415,72 @@ a{
 				linear-gradient(my-calc($i), #35810a 50%, transparent 50%);
     	}
     }
+    @if ($i < 50) {
+    	.piechart-a-#{$i} {
+    		position:absolute;
+    		background:#cde5c8;
+    		width: 144px !important; 
+			height: 288px;
+			box-sizing: border-box;
+			border-top-right-radius: 0;
+			border-top-left-radius: 144px;
+			border-bottom-left-radius: 144px;
+			border-bottom-right-radius: 0;
+			z-index: 50;
+			left:0;
+			top:0;
+    	}
+    	.piechart-b-#{$i} {
+    		position:absolute;
+    		transform: rotate(my-calc($i));
+    		transform-origin: 100% 50%;
+    		background:green;
+    		width: 144px !important; 
+			height: 288px;
+			box-sizing: border-box;
+			border-top-right-radius: 0;
+			border-top-left-radius: 144px;
+			border-bottom-left-radius: 144px;
+			border-bottom-right-radius: 0;
+			z-index: 49;
+			top:0;
+			right:144px;
+    	}
+    }
+    @else {
+    	.piechart-a-#{$i} {
+    		position:absolute;
+    		background:green;
+    		width: 144px !important; 
+			height: 288px;
+			box-sizing: border-box;
+			border-top-left-radius: 0;
+			border-top-right-radius: 144px;
+			border-bottom-right-radius: 144px;
+			border-bottom-left-radius: 0;
+			z-index: 50;
+			right:0;
+			top:0;
+    	}
+    	.piechart-b-#{$i} {
+    		position:absolute;
+    		transform: rotate(my-calc($i));
+    		transform-origin: 100% 50%;
+    		background:green;
+    		width: 144px !important; 
+			height: 288px;
+			box-sizing: border-box;
+			border-top-right-radius: 0;
+			border-top-left-radius: 144px;
+			border-bottom-left-radius: 144px;
+			border-bottom-right-radius: 0;
+			z-index: 49;
+			top:0;
+			right:144px;
+    	}
+
+    }
+
 
     .barchart-#{$i} {
     	width: my-percent($i);
