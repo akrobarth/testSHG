@@ -53,23 +53,7 @@
 		<div class="container__data--title">les data</div>
 		<div class="container__data__charts">
 			<div class="container__data__charts__chart">
-				<!-- <div 
-					class="container__data__charts__chart--progression--border"
-					ng-class="'piechart-'+ userActiv.percent" 
-					ng-show="showdata">
-					<div class="container__data__charts__chart--progression">
-						<div class="container__data__charts__chart--percent">
-							{{userActiv.percent}} % 
-						</div>
-						<div class="container__data__charts__chart--text">
-							de l'objectif
-						</div>
-					</div>
-				
-				</div> -->
-				
-				
-<div class="container__data__charts__chart--content">
+				<div class="container__data__charts__chart--content">
 					<div class="container__data__charts__chart--progression">
 						<div class="container__data__charts__chart--percent">
 							{{userActiv.percent}} % 
@@ -79,11 +63,11 @@
 						</div>
 							
 					</div>
-					<div class="container__data__charts__chart--progression--border" ng-class="'piechart-a-'+ userActiv.percent"></div>
-					<div class="" ng-class="'piechart-b-'+ userActiv.percent"></div>
-</div>
-				
-				
+					<div ng-class="'piechart-b-'+ userActiv.percent" ng-show="showdata">
+						<div class="piechart-b--scratch"></div>
+					</div>
+					<div ng-class="'piechart-a-'+ userActiv.percent" ng-show="showdata"></div>
+				</div>
 			</div>
 			<div class="container__data__charts__progression">
 				<div class="container__data__charts__progression--content">
@@ -98,8 +82,9 @@
 						class="container__data__charts__progression--fill"
 						ng-class="'barchart-'+userActiv.percent"
 						ng-show="showdata">
-						
+						<div class="container__data__charts__progression--fill--scratch"></div>
 					</div>
+
 					<div class="container__data__charts__progression--value">
 						{{userActiv.amount}} €
 					</div>
