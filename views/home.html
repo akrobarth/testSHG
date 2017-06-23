@@ -26,53 +26,53 @@
 <div class="container">
 
 	<!-- BANNERS -->
-	<div class="container__banner">
+	<div class="banner">
 
 		<!-- BANNER LEFT -->
-		<div class="container__banner__left">
-			<p class="container__banner__left__text">rien ne vous arrête</p>
-			<div class="container__banner__left--border"></div>
+		<div class="banner__left">
+			<p class="banner__left--text">rien ne vous arrête</p>
+			<div class="banner__left--border"></div>
 		</div>
 
 		<!-- BANNER RIGHT -->
-		<div class="container__banner__right">
+		<div class="banner__right">
 			<div>
-				<p class="container__banner__right--small">du 14 décembre 2015 au 15 septembre 2016</p>
-				<p class="container__banner__right--big">gagnez</p>
+				<p class="banner__right--small">du 14 décembre 2015 au 15 septembre 2016</p>
+				<p class="banner__right--big">gagnez</p>
 				<p>100 caméras d'action</p>
 				<p>150 dossards runningheroes</p>
 				<p>et plein d'autres cadeaux</p>
 			</div>
-			<div class="container__banner__right__form">
-				<div class="container__banner__right__form--title">Rentrez votre email</div>
+			<div class="form">
+				<div class="form--title">Rentrez votre email</div>
 				<form>
-				<input type="email" name="email" placeholder="E-MAIL" class="container__banner__right__form--input"/>
-				<input type="submit" value="Validez" class="container__banner__right__form--button"/>
+				<input type="email" name="email" placeholder="E-MAIL" class="form--input"/>
+				<input type="submit" value="Validez" class="form--button"/>
 				</form>
 			</div>
-			<div class="container__banner__right__links">
+			<div class="links">
 				<p><a href="#">Réglement</a> - <a href="#">Crédit</a> - <a href="#">Mentions légales</a> - <a href="#">Protection des données personnelles</a></p>
 			</div>
-			<div class="container__banner__right__catchprase">
-				<p class="container__banner__right__catchprase--text">
+			<div class="catchprase">
+				<p class="catchprase--text">
 					Une chance par jour
 				</p>
 			</div>
 		</div>
 	</div>
 	<!-- DATAS -->
-	<div class="container__data" id="datas">
-		<div class="container__data--title">les data</div>
-		<div class="container__data__charts">
+	<div class="data" id="datas">
+		<div class="data--title">les data</div>
+		<div class="charts">
 
 			<!-- PERCENT CHART -->
-			<div class="container__data__charts__chart">
-				<div class="container__data__charts__chart--content">
-					<div class="container__data__charts__chart--progression">
-						<div class="container__data__charts__chart--percent" ng-show="showdata">
+			<div class="charts__chart">
+				<div class="charts__chart--content">
+					<div class="charts__chart--progression">
+						<div class="charts__chart--percent" ng-show="showdata">
 							{{userActiv.percent}} % 
 						</div>
-						<div class="container__data__charts__chart--text" ng-show="showdata">
+						<div class="charts__chart--text" ng-show="showdata">
 							de l'objectif
 						</div>
 							
@@ -85,23 +85,23 @@
 			</div>
 
 			<!-- BAR CHART-->
-			<div class="container__data__charts__progression">
-				<div class="container__data__charts__progression--content">
-				<div class="container__data__charts__progression--title">
+			<div class="charts__progression">
+				<div class="charts__progression--content">
+				<div class="charts__progression--title">
 					gains
 				</div>
-				<div class="container__data__charts__progression--amount">
+				<div class="charts__progression--amount">
 					100 000€
 				</div>
-				<div class="container__data__charts__progression--chart">
+				<div class="charts__progression--chart">
 					<div 
-						class="container__data__charts__progression--fill"
+						class="charts__progression--fill"
 						ng-class="'barchart-'+userActiv.percent"
 						ng-show="showdata">
-						<div class="container__data__charts__progression--fill--scratch"></div>
+						<div class="charts__progression--fill--scratch"></div>
 					</div>
 
-					<div class="container__data__charts__progression--value">
+					<div class="charts__progression--value">
 						{{userActiv.amount}} €
 					</div>
 				</div>

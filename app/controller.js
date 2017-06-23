@@ -49,7 +49,7 @@
 
 		//WATCH IF CHARTS ARE ON SCREEN ON SCROLL
 		$scope.onScroll = function (){
-		  for (var item of document.querySelectorAll(".container__data__charts__chart")) {
+		  for (var item of document.querySelectorAll(".charts__chart")) {
 		    	$scope.elementVisible(item);
 		  }
 		}
