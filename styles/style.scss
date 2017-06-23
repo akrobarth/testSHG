@@ -1,33 +1,12 @@
+@import
+	"includes/colors",
+	"includes/fonts",
+	"includes/icons",
+	"includes/charts";
+
 //SASS VAIABLES
 //BREAKPOINTS
 $small-screen: 720px;
-
-//COLORS
-$color-light: #ffffff;
-$color-grey: #f5f5f5;
-$color-green: #2e8126;
-$color-brown: #625247;
-$color-red: #be1f3b;
-
-//FONT FACES
-@font-face {
-	font-family: 'edosz';
-	src: url(../fonts/edosz.ttf);
-}
-@font-face {
-	font-family: 'Spinnaker-Regular';
-	src: url(../fonts/Spinnaker-Regular.ttf);
-}
-@font-face {
-  font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?nszjtj');
-  src:  url('../fonts/icomoon.eot?nszjtj#iefix') format('embedded-opentype'),
-	url('../fonts/icomoon.ttf?nszjtj') format('truetype'),
-	url('../fonts/icomoon.woff?nszjtj') format('woff'),
-	url('../fonts/icomoon.svg?nszjtj#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
 
 //RESET CSS
 body{
@@ -44,31 +23,7 @@ a{
 	color: inherit;
 }
 
-// ICON
-[class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.icon-close:before {
-  content: "\e901";
-}
-.icon-menu:before {
-  content: "\e900";
-}
-
-
-
-// MAIN PAGE CSS
+// HEADER
 .header{
 	position:absolute;
 	width: 100%;
@@ -115,7 +70,7 @@ a{
 			height:100%;
 			background: rgba(255, 255, 255, 0.9);
 			z-index: 200;
-			transition:all linear 0.5s;
+			transition:all ease 0.5s;
 			&.ng-hide {
 				left:100%;
 			}
@@ -144,7 +99,10 @@ a{
 		}
 	}
 }
+
+// MAIN CONTENT
 .container{
+	// TOP BANNERS
 	&__banner{
 		display: flex;
 		@media screen and (max-width: $small-screen) {
@@ -269,6 +227,7 @@ a{
 			}
 		}	
 	}
+	// DATAS
 	&__data{
 		background-color: $color-grey;
 		padding:40px 0;
@@ -309,7 +268,6 @@ a{
 					height: 250px;
 					z-index: 100;
 					position:relative;
-					
 					&--border{
 						display: flex;
 						flex-direction: column;
@@ -320,21 +278,26 @@ a{
 						width: 288px;
 						height: 288px;
 						border-radius: 100%;
-						transition:all linear 1s;
+						
 						border: solid #cde5c8 0;
-						&.ng-hide{
-							border-radius: 100%;
-							border: solid #cde5c8 20px;
-						}
 					}
 				}
 				&--percent{
 					color: $color-green;
 					font-size: 80px;
+					transition:all ease 2s;
+					transition-delay: 0.2s;
+					&.ng-hide{
+						opacity: 0;
+					}
 				}
 				&--text{
 					font-size:30px;
-
+					transition:all ease 2s;
+					transition-delay: 0.2s;
+					&.ng-hide{
+						opacity: 0;
+					}
 				}
 				@media screen and (max-width: $small-screen) {
 					margin: auto;
@@ -377,7 +340,7 @@ a{
 					width: 100%;
 					background-color: $color-green;
 					-webkit-mask-image: url('../image/bg-dataGain.png');
-					transition:all linear 2s;
+					transition:all ease 2s;
 					&.ng-hide{
 						width:0;
 					}
@@ -400,96 +363,4 @@ a{
 			}
 		}
 	}
-}
-
-// PERCENTS
-@function my-calc($var){
-	@return ((($var - 50 ) * 3.6) - 180deg)
-	//@return ((($var - 50 ) * 3.6) - 180deg)
-}
-@function my-percent($var){
-	@return ($var *1%)
-}
-[class *= "piechart-"]{
-	position:absolute;
-	width: 144px; 
-	height: 288px;
-	box-sizing: border-box;
-	z-index: 50;
-	top:0;
-}
-[class *= "piechart-b-"]{
-	background: $color-green;
-	right:144px;
-	border-top-right-radius: 0;
-	border-top-left-radius: 144px;
-	border-bottom-left-radius: 144px;
-	border-bottom-right-radius: 0;
-	transform-origin: 100% 50%;
-	z-index: '49';
-	transition:all linear 2s;
-	&.ng-hide{
-		transform: rotate(-360deg);
-	}
-}
-.piechart-b--scratch{
-	position:absolute;
-	right:0;
-	background:url('../image/bg-dataGain.png');;
-	width:25px;
-	height:100px;
-}	
-@for $i from 1 through 100 {
-    @if ($i < 50) {
-    	.piechart-a-#{$i} {
-    		background:#cde5c8;
-			border-top-right-radius: 0;
-			border-top-left-radius: 144px;
-			border-bottom-left-radius: 144px;
-			border-bottom-right-radius: 0;
-			left:0;
-    	}
-    	.piechart-b-#{$i} {
-    		transform: rotate(my-calc($i));		
-    	}
-    }
-    @else {
-    	.piechart-a-#{$i} {
-    		color: $color-green;
-			border-top-right-radius: 144px;
-			border-top-left-radius: 0;
-			border-bottom-right-radius: 144px;
-			border-bottom-left-radius: 0;
-			right:0;
-			border: solid $color-green 20px;
-			&.ng-hide{
-				transform: rotate(-360deg);
-				&::after{
-					content: "";
-					position:absolute;
-					width: 144px; 
-					height: 288px;
-					box-sizing: border-box;
-					z-index: 50;
-					top:-20px;
-					background:#cde5c8;
-					border-top-right-radius: 0;
-					border-top-left-radius: 144px;
-					border-bottom-left-radius: 144px;
-					border-bottom-right-radius: 0;
-					left:-166px;
-				}
-			}
-			&::after{
-				display:none;
-			}
-    	}
-    	.piechart-b-#{$i} {
-    		transform: rotate(my-calc($i));
-    	}
-
-    }
-    .barchart-#{$i} {
-    	width: my-percent($i);
-    }
 }

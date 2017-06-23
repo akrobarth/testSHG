@@ -18,9 +18,12 @@
 		$scope.users = resolvedData;
 		$scope.userActiv = $scope.users[0];
 
+		//OPEN MENU
 		$scope.openMenu = function () {
 			$scope.showMenu = !$scope.showMenu;
 		};
+
+		//CHANGE USER
 		$scope.changeUser = function (index){
 			$scope.userActiv = $scope.users[index];
 			$scope.showMenu = false;
@@ -28,8 +31,8 @@
 			document.getElementById('datas').scrollIntoView({behavior: "smooth"});
 		};
 
+		//IF CHARTS ARE ON SCREEN
 		$scope.elementVisible = function (el){
-
 			let top = el.offsetTop;
 			let height = el.offsetHeight;
 			let bottom = top + height;
@@ -44,6 +47,7 @@
 			$scope.$apply();
 		}
 
+		//WATCH IF CHARTS ARE ON SCREEN ON SCROLL
 		$scope.onScroll = function (){
 		  for (var item of document.querySelectorAll(".container__data__charts__chart")) {
 		    	$scope.elementVisible(item);

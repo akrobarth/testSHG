@@ -1,3 +1,4 @@
+<!-- MENU OVERLAY -->
 <div class="header__menu__overlay" ng-show="showMenu" >
 	<div class="header__menu__overlay--close-icon">
 		<i class="icon-close header__menu--icon" ng-click="openMenu();"></i>
@@ -11,6 +12,8 @@
 		</li>
 	</ul>
 </div>
+
+<!-- HEADER -->
 <div class="header">
 	<div class="header__logo">running heroes</div>
 	<div class="header__menu" ng-click="openMenu();">
@@ -18,12 +21,20 @@
 		<div class="header__menu--text">menu</div>
 	</div>
 </div>
+
+<!-- MAIN CONATAINER -->
 <div class="container">
+
+	<!-- BANNERS -->
 	<div class="container__banner">
+
+		<!-- BANNER LEFT -->
 		<div class="container__banner__left">
 			<p class="container__banner__left__text">rien ne vous arrête</p>
 			<div class="container__banner__left--border"></div>
 		</div>
+
+		<!-- BANNER RIGHT -->
 		<div class="container__banner__right">
 			<div>
 				<p class="container__banner__right--small">du 14 décembre 2015 au 15 septembre 2016</p>
@@ -49,26 +60,31 @@
 			</div>
 		</div>
 	</div>
+	<!-- DATAS -->
 	<div class="container__data" id="datas">
 		<div class="container__data--title">les data</div>
 		<div class="container__data__charts">
+
+			<!-- PERCENT CHART -->
 			<div class="container__data__charts__chart">
 				<div class="container__data__charts__chart--content">
 					<div class="container__data__charts__chart--progression">
-						<div class="container__data__charts__chart--percent">
+						<div class="container__data__charts__chart--percent" ng-show="showdata">
 							{{userActiv.percent}} % 
 						</div>
-						<div class="container__data__charts__chart--text">
+						<div class="container__data__charts__chart--text" ng-show="showdata">
 							de l'objectif
 						</div>
 							
 					</div>
 					<div ng-class="'piechart-b-'+ userActiv.percent" ng-show="showdata">
-						<div class="piechart-b--scratch"></div>
+						<div class="piechart__scratch"></div>
 					</div>
 					<div ng-class="'piechart-a-'+ userActiv.percent" ng-show="showdata"></div>
 				</div>
 			</div>
+
+			<!-- BAR CHART-->
 			<div class="container__data__charts__progression">
 				<div class="container__data__charts__progression--content">
 				<div class="container__data__charts__progression--title">
