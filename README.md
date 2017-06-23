@@ -7,19 +7,24 @@ Avoir node d'installé
 Avoir bower et gulp
 
 <pre>
-npm bower -g gulp
+npm install -g bower
+
 npm install -g gulp
 </pre>
 
 
-
 Pour lancer le projet 
-
-- avoir node et bower d'installés
 
 - git clone du projet 
 
-- bower install
-- npm install
+<pre>
+bower install
 
-- pour lancer le projet dans un navigateur lancer la commande gulp
+npm install
+</pre>
+
+- pour lancer le projet dans un navigateur lancer gulp
+
+<pre>
+gulp
+</pre>

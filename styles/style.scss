@@ -101,264 +101,264 @@ a{
 }
 
 // MAIN CONTENT
-	// TOP BANNERS
-	.banner{
+// TOP BANNERS
+.banner{
+	display: flex;
+	@media screen and (max-width: $small-screen) {
+		flex-direction: column;
+	}
+	&__left{
+		color: $color-light;
+		min-height: 100vh;
+		flex:2;
+		text-transform: uppercase;
+		text-align: center;
+		background: url(../image/runner.jpg) no-repeat;
+		background-size: cover;
+		background-position: center right;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 80px;
+		display:flex;
+		position: relative;
+		@media screen and (max-width: $small-screen) {
+			min-height: 600px;
+		}
+		&--text{
+			padding: 50px;
+		}
+		&--border{
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 100%;
+			width: 60px;
+			background: url(../image/scratch.png) no-repeat;
+			background-size: cover;
+			@media screen and (max-width: $small-screen) {
+				height: 200%;
+				top: 100%;
+				transform: rotate(90deg);
+				transform-origin: 100% 0%;
+			}
+		}
+	}
+	&__right{
+		flex:2;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		position: relative;
+		text-align:center;
+		color: $color-brown;
+		@media screen and (max-width: $small-screen) {
+			min-height: 400px;
+		}
+		&--small{
+			font-size: 12px;
+		}
+		&--big{
+			font-size: 60px;
+			color: $color-red;
+		}
+		& .form{
+			font-family: 'Spinnaker-Regular';
+			&--title{
+				font-size: 12px;
+				margin: 20px 0;
+			}
+			&--input{
+				border-radius: 50px;
+				outline: none;
+				border: solid 1px darken($color-grey, 5);
+				padding: 10px;
+				background: $color-grey;
+				text-align: center;
+			}
+			&--button{
+				display: block;
+				margin: 20px 0;
+				width: 100%;
+				border: none;
+				background: none;
+				font-family: 'edosz';
+				font-size:24px;
+				color: $color-light;
+				background: url(../image/bg-btn.png) no-repeat;
+				background-size: contain;
+				background-position: center;
+				padding: 10px;
+				cursor:pointer;
+			}
+		}
+		& .links{
+			position: absolute;
+			bottom: 0;
+			font-family: 'Spinnaker-Regular';
+			font-size: 12px;
+			color: darken($color-grey,25);
+			margin-bottom: 10px;
+			a {
+				color: inherit;
+			}
+			
+		}
+		& .catchprase{
+			position:absolute;
+			background: url(../image/bg-catchPhrase.png) no-repeat;
+			width: 167px;
+			height:156px;
+			top:6%;
+			right:12%;
+			color: $color-light;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			&--text{
+				transform: rotate(14deg);
+				width:70%;
+			}
+			@media screen and (max-width: $small-screen) {
+				display: none;
+			}
+		}
+	}	
+}
+// DATAS
+.data{
+	background-color: $color-grey;
+	padding:40px 0;
+	&--title{
+		color: $color-red;
+		text-align:center;
+		font-size: 60px;
+		color: $color-red;
+		margin-bottom:40px;
+	}
+	& .charts{
 		display: flex;
 		@media screen and (max-width: $small-screen) {
 			flex-direction: column;
 		}
-		&__left{
-			color: $color-light;
-			min-height: 100vh;
-			flex:2;
-			text-transform: uppercase;
-			text-align: center;
-			background: url(../image/runner.jpg) no-repeat;
-			background-size: cover;
-			background-position: center right;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			font-size: 80px;
-			display:flex;
-			position: relative;
-			@media screen and (max-width: $small-screen) {
-				min-height: 600px;
-			}
-			&--text{
-				padding: 50px;
-			}
-			&--border{
-				position: absolute;
-				right: 0;
-				top: 0;
-				height: 100%;
-				width: 60px;
-				background: url(../image/scratch.png) no-repeat;
-				background-size: cover;
-				@media screen and (max-width: $small-screen) {
-					height: 200%;
-					top: 100%;
-					transform: rotate(90deg);
-					transform-origin: 100% 0%;
-				}
-			}
-		}
-		&__right{
+		&__chart{
 			flex:2;
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			flex-direction: column;
-			position: relative;
-			text-align:center;
-			color: $color-brown;
-			@media screen and (max-width: $small-screen) {
-				min-height: 400px;
+			background: url(../image/bg-dataPercent.png) no-repeat;
+			background-position: center;
+			width:350px;
+			min-height:350px;
+			&--content{
+				position: relative;
+				padding:20px;
 			}
-			&--small{
-				font-size: 12px;
-			}
-			&--big{
-				font-size: 60px;
-				color: $color-red;
-			}
-			& .form{
-				font-family: 'Spinnaker-Regular';
-				&--title{
-					font-size: 12px;
-					margin: 20px 0;
-				}
-				&--input{
-					border-radius: 50px;
-					outline: none;
-					border: solid 1px darken($color-grey, 5);
-					padding: 10px;
-					background: $color-grey;
-					text-align: center;
-				}
-				&--button{
-					display: block;
-					margin: 20px 0;
-					width: 100%;
-					border: none;
-					background: none;
-					font-family: 'edosz';
-					font-size:24px;
-					color: $color-light;
-					background: url(../image/bg-btn.png) no-repeat;
-					background-size: contain;
-					background-position: center;
-					padding: 10px;
-					cursor:pointer;
-				}
-			}
-			& .links{
-				position: absolute;
-				bottom: 0;
-				font-family: 'Spinnaker-Regular';
-				font-size: 12px;
-				color: darken($color-grey,25);
-				margin-bottom: 10px;
-				a {
-					color: inherit;
-				}
-				
-			}
-			& .catchprase{
-				position:absolute;
-				background: url(../image/bg-catchPhrase.png) no-repeat;
-				width: 167px;
-				height:156px;
-				top:6%;
-				right:12%;
-				color: $color-light;
+			&--progression{
 				display: flex;
-				justify-content: center;
-				align-items: center;
-				&--text{
-					transform: rotate(14deg);
-					width:70%;
-				}
-				@media screen and (max-width: $small-screen) {
-					display: none;
-				}
-			}
-		}	
-	}
-	// DATAS
-	.data{
-		background-color: $color-grey;
-		padding:40px 0;
-		&--title{
-			color: $color-red;
-			text-align:center;
-			font-size: 60px;
-			color: $color-red;
-			margin-bottom:40px;
-		}
-		& .charts{
-			display: flex;
-			@media screen and (max-width: $small-screen) {
 				flex-direction: column;
-			}
-			&__chart{
-				flex:2;
-				display: flex;
 				justify-content: center;
 				align-items: center;
-				background: url(../image/bg-dataPercent.png) no-repeat;
+				border-radius: 100%;
+				background: url(../image/bg-dataPercent.png) $color-grey no-repeat;
 				background-position: center;
-				width:350px;
-				min-height:350px;
-				&--content{
-					position: relative;
-					padding:20px;
-				}
-				&--progression{
+				width: 250px;
+				height: 250px;
+				z-index: 100;
+				position:relative;
+				&--border{
 					display: flex;
 					flex-direction: column;
 					justify-content: center;
 					align-items: center;
+					position: relative;
+					text-align: center;
+					width: 288px;
+					height: 288px;
 					border-radius: 100%;
-					background: url(../image/bg-dataPercent.png) $color-grey no-repeat;
-    				background-position: center;
-    				width: 250px;
-					height: 250px;
-					z-index: 100;
-					position:relative;
-					&--border{
-						display: flex;
-						flex-direction: column;
-						justify-content: center;
-						align-items: center;
-						position: relative;
-						text-align: center;
-						width: 288px;
-						height: 288px;
-						border-radius: 100%;
-						
-						border: solid #cde5c8 0;
-					}
-				}
-				&--percent{
-					color: $color-green;
-					font-size: 80px;
-					transition:all ease 2s;
-					transition-delay: 0.2s;
-					&.ng-hide{
-						opacity: 0;
-					}
-				}
-				&--text{
-					font-size:30px;
-					transition:all ease 2s;
-					transition-delay: 0.2s;
-					&.ng-hide{
-						opacity: 0;
-					}
-				}
-				@media screen and (max-width: $small-screen) {
-					margin: auto;
+					
+					border: solid #cde5c8 0;
 				}
 			}
-			&__progression{
-				flex:2;
+			&--percent{
+				color: $color-green;
+				font-size: 80px;
+				transition:all ease 2s;
+				transition-delay: 0.2s;
+				&.ng-hide{
+					opacity: 0;
+				}
+			}
+			&--text{
+				font-size:30px;
+				transition:all ease 2s;
+				transition-delay: 0.2s;
+				&.ng-hide{
+					opacity: 0;
+				}
+			}
+			@media screen and (max-width: $small-screen) {
+				margin: auto;
+			}
+		}
+		&__progression{
+			flex:2;
+			display:flex;
+			justify-content: center;
+			align-items: center;
+			&--content{
+				height:130px;
 				display:flex;
 				justify-content: center;
 				align-items: center;
-				&--content{
-					height:130px;
-					display:flex;
-					justify-content: center;
-					align-items: center;
-					flex-wrap: wrap;
+				flex-wrap: wrap;
+			}
+			&--title{
+				flex:50%;
+				text-align:center;
+				font-size: 40px;
+			}
+			&--amount{
+				flex:50%;
+				text-align:center;
+			}
+			&--chart{
+				flex:100%;
+				background: url(../image/bg-dataGain.png) no-repeat;
+				background-position: center;
+				max-width:495px;
+				min-width:495px;
+				height:63px;
+				color: $color-light;
+				position: relative;
+			}
+			&--fill{
+				position: relative;
+				height: 100%;
+				width: 100%;
+				background-color: $color-green;
+				-webkit-mask-image: url('../image/bg-dataGain.png');
+				transition:all ease 2s;
+				&.ng-hide{
+					width:0;
 				}
-				&--title{
-					flex:50%;
-					text-align:center;
-					font-size: 40px;
+				&--scratch{
+					position:absolute;
+					right:0;
+					background:url('../image/bg-dataGain.png');;
+					width:25px;
+					height:100px;
 				}
-				&--amount{
-					flex:50%;
-					text-align:center;
-				}
-				&--chart{
-					flex:100%;
-					background: url(../image/bg-dataGain.png) no-repeat;
-					background-position: center;
-					max-width:495px;
-					min-width:495px;
-					height:63px;
-					color: $color-light;
-					position: relative;
-				}
-				&--fill{
-					position: relative;
-					height: 100%;
-					width: 100%;
-					background-color: $color-green;
-					-webkit-mask-image: url('../image/bg-dataGain.png');
-					transition:all ease 2s;
-					&.ng-hide{
-						width:0;
-					}
-					&--scratch{
-						position:absolute;
-						right:0;
-						background:url('../image/bg-dataGain.png');;
-						width:25px;
-						height:100px;
-					}
-				}
-				&--value{
-					position: absolute;
-					top: 20px;
-					left: 50px;
-				}
-				@media screen and (max-width: $small-screen) {
-					margin: 30px auto;
-				}
+			}
+			&--value{
+				position: absolute;
+				top: 20px;
+				left: 50px;
+			}
+			@media screen and (max-width: $small-screen) {
+				margin: 30px auto;
 			}
 		}
 	}
+}
