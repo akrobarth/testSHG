@@ -6,7 +6,7 @@
 
 //SASS VAIABLES
 //BREAKPOINTS
-$small-screen: 720px;
+$small-screen: 768px;
 
 //RESET CSS
 body{
@@ -336,7 +336,6 @@ a{
 			&--fill{
 				position: relative;
 				height: 100%;
-				width: 100%;
 				background-color: $color-green;
 				-webkit-mask-image: url('../image/bg-dataGain.png');
 				transition:all ease 2s;
